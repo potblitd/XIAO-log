@@ -9,3 +9,15 @@ The circuit is composed of a microcontroller board, a battery and the temperatur
 <p align="center">
   <img src="images/DSC02819-crop-nasic.JPG" width="500" />
 </p>
+
+## Assembly
+
+Instead of soldering the battery directly onto the chip, a connector is fixed to facilitate removal and power OFF. The sensor uses I2C protocol which can be configured on pins D4 (SDA) and D5 (SCL). By connecting the power supply for the sensor on a GPIO, such as D10, it can be powered only when needed and therefore reduce the power consumption during the deep sleep phase.
+
+<p align="center">
+  <img src="images/DSC02847.JPG" width="500" />
+</p>
+
+<p align="center">
+  <img src="images/DSC02851.JPG" width="500" />
+</p>
