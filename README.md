@@ -76,11 +76,11 @@ Currently, the only way to connect the ESP32C3 board while in deep sleep for ret
 The current consumption during the measurements and logging is about 20mA and takes about 2 seconds. In deep sleep, the system draws 42uA from the battery which is *nice* considering the RTC time is still running. So, with the 500mAh battery from this setup, the loggers can theoretically run for 29 days with a 60 seconds log cycle. The graph below shows the actual run with temperature, humidity and battery voltage measurement and log every minute. After 35 days, the battery voltage dropped below 3.3V and the microcontroller stopped functioning which means the calculations above are reliable. With a log cycle of 10 minutes or 1 hour, the logger could operate for 241 days or 392 days, respectively.
 
 <p align="center">
-  <img src="images/graph_vbat-log1min-35d.png" width="500" />
+  <img src="images/graph_vbat-log1min-35d.png" width="1000" />
 </p>
 
 <p align="center">
-  <img src="images/graph_temphum-log1min-35d.png" width="500" />
+  <img src="images/graph_temphum-log1min-35d.png" width="1200" />
 </p>
 
 
