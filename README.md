@@ -70,7 +70,7 @@ machine.deepsleep(sleep_time*1000)
 # end
 ```
 
-Currently, the only way to connect the ESP32C3 board while in deep sleep for retrieving the log file, is to physically reset the board and click the restart backend button within the 10 seconds delay from line 10 before the code continues and goes back to deep sleep again.
+Currently, the only way to connect the ESP32C3 board while in deep sleep for retrieving the log file, is to physically reset the board and click the restart backend button within the 10 seconds delay before the code continues and arrives back to deep sleep again.
 
 ## Performance
 
