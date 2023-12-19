@@ -6,7 +6,7 @@ Seeking compactness and all-in-one-ness, a logger shield was deisgned for the XI
   ![img](https://github.com/potblitd/loglog/blob/main/log%5E3/img.png)
 </p>
 
-[img](https://github.com/potblitd/loglog/blob/main/log%5E3/img.png)
+![img](https://github.com/potblitd/loglog/blob/main/log%5E3/img.png)
 
 ## Assembly
 
