@@ -12,9 +12,9 @@ Just solder the components on the right footprint, not much to explain here. I s
 
 ## Code
 
-set_rtc.py can be used to set the time on PCF8563 form the local time on the PC.
+*set_rtc.py* can be used to set the time on PCF8563 form the local time on the PC.
 
-xiaologhot.py is The example code below is simple : it gets the RTC time, reads temperature and humidity from the sensor, writes all these values in a file and then calculates the time until the next measurement based on the log period before going into deep sleep.
+*xiaologhot.py* doesn't need any external libraries so it looks complicated. But its actually not. Code inits I2C comunication, gets the RTC time, reads temperature and humidity from the SHT40 sensor, read ambient light from the BH1750 sensor, tries to connect to the wifi and sends measurements to a server if that's enabled, writes all these values in a file and then calculates the time until the next measurement based on the log period before going into deep sleep.
 
 ```ruby
 # PARAMETERS
@@ -59,13 +59,7 @@ machine.deepsleep(sleep_time*1000)
 # end
 ```
 
-Currently, the only way to connect the ESP32C3 board while in deep sleep for retrieving the log file, is to physically reset the board and quickly click the restart backend button before the code arrives at the deep sleep again.
-
-## Performance
-
-The current consumption during the measurements and logging is about 20mA and takes about 2 seconds. In deep sleep, the system draws 42uA from the battery which is *nice* considering the RTC time is still running. So, with the 1000mAh battery from this setup, the loggers can theoretically run for 58 days with 60 seconds log period. To verify this mad claim, here is a graph of the battery level during this logging run.
-
-*[coming in 58 days]*
+Use the *tes* variable to avoid the logger going to deep sleep and loosing connection when testing the code. Also, to acess files after a run, connecting or resetting the board gives the user 10 seconds to do so.
 
 
 
