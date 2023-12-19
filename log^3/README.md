@@ -3,7 +3,7 @@
 Seeking compactness and all-in-one-ness, a logger shield was deisgned for the XIAO ESP32C3. It includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock.
 
 <p align="center">
-  <img src="img.png" width="200" />
+  <img src="img.png" width="500" />
 </p>
 
 ## Assembly
@@ -12,7 +12,9 @@ Just solder the components on the right footprint, not much to explain here. I s
 
 ## Code
 
-The easiest way to get micropython on the ESP32C3 chip is to download the firmware [here](https://micropython.org/download/esp32c3-usb/), enter bootloader mode by holding the BOOT button down while pressing the RESET button, and then flash the chip with the bin file using [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/) through the command prompt at the right COM port. With the [Thonny IDE](https://thonny.org/), the onboard files can easily be managed, and codes can be run directly without uploading them. The example code below is simple : it gets the RTC time, reads temperature and humidity from the sensor, writes all these values in a file and then calculates the time until the next measurement based on the log period before going into deep sleep.
+set_rtc.py can be used to set the time on PCF8563 form the local time on the PC.
+
+xiaologhot.py is The example code below is simple : it gets the RTC time, reads temperature and humidity from the sensor, writes all these values in a file and then calculates the time until the next measurement based on the log period before going into deep sleep.
 
 ```ruby
 # PARAMETERS
