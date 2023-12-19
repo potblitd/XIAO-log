@@ -1,10 +1,10 @@
 # PARAMETERS
 log_period = 60*30
 test = True
-wifi_update = True
-ssid = 'EcoNet2023'
-password = 'Ecoeco12345678'
-url = 'https://api.thingspeak.com/update?api_key=ISDQ87W6S6DTIA5P'
+wifi_update = False
+ssid = ''
+password = ''
+url = ''
 
 # LIBRAIRIES
 import os, time, machine, sys
