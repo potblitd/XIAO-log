@@ -6,6 +6,8 @@ Seeking compactness and all-in-one-ness, a logger shield was deisgned for the XI
   <img src="img.png" width="500" />
 </p>
 
+Size is 22.5 mm x 18 mm x 13 mm
+
 ## Assembly
 
 Just solder the components on the right footprint, not much to explain here. I also squeezed a 100mAh Li-ion battery between the two PCB boards. Neat.
