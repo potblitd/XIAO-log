@@ -1,6 +1,6 @@
 # log<sup>3
 
-Seeking compactness and all-in-one-ness, a logger shield was deisgned for the XIAO ESP32C3. It includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock.
+Seeking compactness and all-in-one-ness, a logger shield was designed for the XIAO ESP32C3. It includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock.
 
 <p align="center">
   <img src="img.png" width="500" />
