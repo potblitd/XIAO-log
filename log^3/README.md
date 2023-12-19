@@ -3,14 +3,12 @@
 Seeking compactness and all-in-one-ness, a logger shield was deisgned for the XIAO ESP32C3. It includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock.
 
 <p align="center">
-  <img src="images/XIAO-HAT_nobg.png" width="500" />
+  <img src="XIAO-HAT_nobg.png" width="500" />
 </p>
 
 ## Assembly
 
-Instead of soldering the battery directly onto the chip, a connector is fixed to facilitate removal and power OFF. The sensor uses I2C protocol which can be configured on pins D4 (SDA) and D5 (SCL). By connecting the power supply for the sensor on a GPIO, such as D10, it can be powered only when needed and therefore reduce the power consumption during the deep sleep phase.
-
-
+Just solder the components on the right footprint, not much to explain here. I squeezed a 100mAh Li-ion battery between the two PCB boards
 
 ## Code
 
