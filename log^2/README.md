@@ -5,7 +5,16 @@ Seeking compactness and all-in-one-ness, a logger shield was designed for the XI
 <p align="center">
   <img src="images/v1_front-nobg.png" width="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_front-nobg.png" width="200" />
+  <img src="images/v2_assembled-nobg.png" width="200" />
+</p>
+
+## Assembly
+After assembling the SMD components on the adapted silkscreen and pads for manual soldering (V2 only), the shield is soldered on the pins of XIAO while a lithium battery is sandwiched between the two boards.
+
+<p align="center">
+  <img src="images/v1_assembled.png" width="200" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/v2_assembled.png" width="200" />
 </p>
 
 Size is 22.5 mm x 18 mm x 13 mm
