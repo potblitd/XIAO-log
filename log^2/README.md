@@ -1,6 +1,6 @@
 # log<sup>2
 
-Seeking compactness and all-in-one-ness, a logger shield was designed for the XIAO ESP32C3. V1 includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock. The RTC is powered by the 3V3 while the two sensor chips are powered through pin D10. Communication is done through I2C pins D4 (SDA) and D5 (SCL). The second version also features a battery voltage divider that is enabled through D10 and the halved voltage can be read on pin A3. this features requires wiring the battery power to the shield.
+Seeking compactness and all-in-one-ness, a logger shield was designed for the XIAO ESP32C3. Both V1 and V2 include the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock. The RTC is powered by the 3V3 while the two sensor chips are powered through pin D10. Communication is done through I2C pins D4 (SDA) and D5 (SCL). The second version also features a battery voltage divider that is enabled through D10 and the halved voltage can be read on pin A3. This circuitry requires wiring the battery power to the shield.
 
 <p align="center">
   <img src="images/v1_front-nobg.png" width="200" />
@@ -9,7 +9,7 @@ Seeking compactness and all-in-one-ness, a logger shield was designed for the XI
 </p>
 
 ## Assembly
-After assembling the SMD components on the adapted silkscreen and pads for manual soldering (V2 only), the shield is soldered on the pins of XIAO while a lithium battery is sandwiched between the two boards.
+SMD components are soldered on the shield first. V2 has adapted silkscreen and pads for easier manual soldering. The populated PCB is then soldered on the header pins of XIAO while a adequately-sized lithium battery is sandwiched between the two boards. For V2, a wire must be added to get the battery voltage.
 
 <p align="center">
   <img src="images/v1_assembled.png" width="200" />
