@@ -13,9 +13,9 @@ Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 w
 After mounting the SMD components, the module is intended to be soldered directly onto the XIAO board (screw heat dissipation), connecting the BAT+ pins together while leaving space for a connector or wires. 
 
 <p align="center">
-  <img src="images/XIAOlogRTC.png" width="200" />
+  <img src="images/XIAOlogRTC.png" height="300" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/XIAOlogRTC-box.png" width="200" />
+  <img src="images/XIAOlogRTC-box.png" height="300" />
 </p>
 
 ## Code
