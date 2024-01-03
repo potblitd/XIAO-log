@@ -3,7 +3,8 @@
 Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 with this weird shaped PCB. Here the PCF8563 RTC chip is powered continuously through the 3V3. The battery voltage divider is enabled through D10 and the halved voltage can be read on A3. Footprints and silkscreen are specifically designed to help for manual soldering.
 
 <p align="center">
-  <img src="images/front-assembled.png" width="200" padding-right:100px />
+  <img src="images/front-assembled.png" width="200" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/back.png" width="200" />
 </p>
 
