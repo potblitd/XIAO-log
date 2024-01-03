@@ -4,7 +4,7 @@ Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 w
 
 <p align="center">
   <img src="images/front-assembled.png" width="200" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/back.png" width="200" />
 </p>
 
