@@ -1,13 +1,11 @@
 # PARAMETERS
 log_period = 60
-
 read_battery = True
-
 wifi_update = True
-ssid = 'EcoNet'
-password = 'Ecoeco12345678'
+ssid = ''
+password = ''
 url = 'http://api.thingspeak.com/update?api_key='
-api_key = '9QHAF1Z4VPE9P2WA'
+api_key = ''
 
 
 # LIBRAIRIES
