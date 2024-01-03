@@ -1,12 +1,10 @@
-# log<sup>2
+# logRTC
 
-Seeking compactness and all-in-one-ness, a logger shield was designed for the XIAO ESP32C3. It includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock.
+Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 with this weird shaped PCB. Here the PCF8563 RTC chip is powered continuously through the 3V3. The battery voltage divider is enabled through D10 and the halved voltage can be read on A3. Footprints and silkscreen are specifically designed to help for manual soldering.
 
-<p align="center">
-  <img src="img.png" width="500" />
-</p>
+## Assembly
 
-Size is 22.5 mm x 18 mm x 13 mm
+After mounting the SMD components, the module is intended to be soldered directly onto the XIAO board (screw heat dissipation), connecting the BAT+ pins together while leaving space for a connector or wires. 
 
 ## Code
 
