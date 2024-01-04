@@ -17,7 +17,7 @@ The XIAO log is composed of a microcontroller board, a battery and the temperatu
 Instead of soldering the battery directly onto the chip, a connector is fixed to facilitate removal and power OFF. The sensor uses I2C protocol which can be configured on pins D4 (SDA) and D5 (SCL). By connecting the VCC power supply for the sensor on a GPIO, such as D10, it can be powered only when needed and therefore reduce Xiao log's power consumption during his deep sleep period.
 
 <p align="center">
-  <img src="images/log_wires.JPG" height="200" />
+  <img src="images/log_wires.JPG" height="150" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/log_assembly.JPG" height="150" />
 </p>
