@@ -89,7 +89,8 @@ if wifi_update:
     # try to send data
     if connected:
         print("Connected to WiFi")
-        readings = {'field1':temp, 'field2':humi, 'field3':lum, 'field4':vbat}
+        readings = {'field1':temp, 'field2':humi, 'field3':lum}
+        if read_battery: readings.append('field4':vbat)
         try:
             request = urequests.post(url, json = readings, headers = {'Content-Type': 'application/json'})  
             request.close()
