@@ -21,7 +21,7 @@ An acrylic cuboid was designed to tightly encase the entire system with holes fo
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/v2_box.png" width="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/box_bottom.png" width="200" />
+  <img src="images/box-bottom.png" width="200" />
 </p>
 
 ## Code
