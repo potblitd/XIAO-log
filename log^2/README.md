@@ -3,11 +3,11 @@
 Seeking compactness and all-in-one-ness, a logger hat was designed for the XIAO ESP32C3. Both V1 and V2 include the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock. The RTC is powered by the 3V3 and the two sensor chips are powered through pin D10. Communication is done through I2C pins D4 (SDA) and D5 (SCL). The second version also features a battery voltage divider that is enabled through D10 and the halved voltage can be read on pin A3. This circuitry requires wiring the battery power to the hat. The PCB and components costs for this module sum up to 9.81 RMB (1.37 USD).
 
 <p align="center">
-  <img src="images/v1_front.png" width="200" />
+  <img src="images/v1_front.png" height="300" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_front.png" width="200" />
+  <img src="images/v2_front.png" height="300" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_mounted.png" width="200" />
+  <img src="images/v2_mounted.png" height="300" />
 </p>
 
 ## Assembly
