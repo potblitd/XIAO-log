@@ -12,7 +12,6 @@ Seeking compactness and all-in-one-ness, a logger hat was designed for the XIAO 
 
 ## Assembly
 SMD components are soldered on the shield first. V2 has adapted silkscreen and pads for easier manual soldering. The populated PCB is then soldered on the header pins of XIAO with an adequately-sized lithium battery sandwiched between the two boards. For V2, a wire must be added to get the battery voltage.
-An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD). 
 
 <p align="center">
   <img src="images/v1_assembled.png" height="200" />
@@ -23,6 +22,8 @@ An acrylic cuboid was designed to tightly encase the entire system with holes fo
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/box-bottom.png" height="200" />
 </p>
+
+An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD). 
 
 ## Code
 
