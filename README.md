@@ -107,9 +107,9 @@ After mounting the SMD components, the module is intended to be soldered directl
 
 *set_rtc.py* sets the time on PCF8563 form the local time on the PC.
 
-The *logmain.py* code can be used for this board. The *read_battery* parameter is used to enable battery voltage reading through D10 and A3. I2C comunication is initialized and, according to the adresses on the bus, values the real-time clock (PCF8563), temperature & humidty sensor (SHT40) and ambient light sensor (BH1750) are retrieved. This data is then written into a file and send over WiFi to a cloud if *wifi_update* is enabled and the corresponding parameters are set up. Finally, the time until the next measurement is calculated based on the *log_period* and deep sleep is activated.
+The *logmain.py* code can be used for all variations in this repo. The *read_battery* parameter is used to enable battery voltage reading through D10 and A3. I2C comunication is initialized and, according to the adresses on the bus, values from the real-time clock (PCF8563), temperature & humidty sensor (SHT40) and ambient light sensor (BH1750) are retrieved. This data is then written into a file and send over WiFi to a cloud if *wifi_update* is enabled and its corresponding parameters are set up. Finally, the time until the next measurement is calculated based on the *log_period* time and deep sleep is activated.
 
-Use the *test* variable to avoid the logger going to deep sleep and loosing connection when testing the code. Also, to acess files after a run, resetting the board gives the user 10 seconds to connect to an IDE.
+Use the *test* variable to avoid the logger going to deep sleep and loosing connection when testing the code. Also, to access files when plugging the USB-C cable to a PC, resetting the board gives the user 10 seconds to connect to an IDE.
 
 # XIAO log<sup>2
 
@@ -137,14 +137,6 @@ SMD components are soldered on the shield first. V2 has adapted silkscreen and p
 </p>
 
 An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD). 
-
-## Code
-
-*set_rtc.py* sets the time on PCF8563 form the local time on the PC.
-
-The *logmain.py* can be used for this board. The *read_battery* parameter is used to enable battery voltage reading through D10 on A3. I2C comunication is initialized and, according to the adresses on the bus, values of the real-time clock (PCF8563), temperature & humidty sensor (SHT40) and ambient light sensor (BH1750) are retrieved. This data is then written into a file and send over WiFi to a cloud if *wifi_update* is enabled and the corresponding parameters are set up. Finally, the time until the next measurement is calculated based on the *log_period* and deep sleep is activated.
-
-Use the *test* variable to avoid the logger going to deep sleep and loosing connection when testing the code. Also, to acess files after a run, resetting the board gives the user 10 seconds to connect to an IDE.
 
 
 
