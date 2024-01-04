@@ -2,10 +2,10 @@
 log_period = 60*30
 test = True
 read_battery = True
-wifi_update = True
+wifi_update = False
 ssid = ''
 password = ''
-url = 'https://api.thingspeak.com/update?api_key='
+url = ''
 
 # LIBRAIRIES
 import os, time, machine, sys
@@ -23,12 +23,11 @@ if read_battery:
     time.sleep_ms(100)
     vbat = round(adc.read_uv()/1000/1000*2, 3)
     if test : print("Battery voltage: %0.3f V" % vbat)
-else: vbat = 'NA'
 
 # I2C INIT
 i2c = machine.SoftI2C(sda = machine.Pin(6), scl = machine.Pin(7))
 i2c_devices = i2c.scan()
-if test : print('I2C adresses currently on the lines :',i2c_devices)
+if test : print('I2C adresses currently on the line :',i2c_devices)
 
 # PCF8563 - DATE & TIME
 if 81 in i2c_devices:
@@ -105,12 +104,14 @@ if wifi_update:
 # VALUES LOG
 if not "log.csv" in os.listdir():
     with open("log.csv", "a") as log:
-        log.write("date,time,vbat,temp,hum,lum")
+        log.write("date,time,temp,hum,lum")
+        if read_battery: log.write(",vbat")
         if wifi_update: log.write(",connected,uploaded")
         log.write("\n")
         
 with open("log.csv", "a") as log:
-    log.write(rtc_date+","+rtc_time+","+str(vbat)+","+str(temp)+","+str(humi)+","+str(lum))
+    log.write(rtc_date+","+rtc_time+","+str(temp)+","+str(humi)+","+str(lum))
+    if read_battery: log.write(","+str(vbat))
     if wifi_update: log.write(","+str(connected)+","+str(uploaded))
     log.write("\n")
     
