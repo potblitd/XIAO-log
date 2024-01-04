@@ -83,7 +83,7 @@ The current consumption during the measurements and logging is about 20mA and ta
 </p>
 It should also be noted that during this run, XIAO log didn't skip or mess up a single one of the total 49342 measurements and file logs. Good job XIAO log !
 
-# XIAO logRTC
+# [XIAO logRTC](XIAO-log/logRTC)
 
 Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 with this weird shaped PCB. Here the PCF8563 RTC chip is powered continuously through the 3V3. The battery voltage divider is enabled through D10 and the halved voltage can be read on A3. Footprints and silkscreen are specifically designed to help for manual soldering.
 
