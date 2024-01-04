@@ -15,13 +15,13 @@ SMD components are soldered on the shield first. V2 has adapted silkscreen and p
 An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD). 
 
 <p align="center">
-  <img src="images/v1_assembled.png" height="250" />
+  <img src="images/v1_assembled.png" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v1_box.png" height="250" />
+  <img src="images/v1_box.png" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_box.png" height="250" />
+  <img src="images/v2_box.png" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/box-bottom.png" height="250" />
+  <img src="images/box-bottom.png" height="200" />
 </p>
 
 ## Code
