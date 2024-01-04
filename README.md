@@ -9,7 +9,7 @@ The XIAO log is composed of a microcontroller board, a battery and the temperatu
 <ins>Note</ins> : The XIAOs internal RTC is garbage. An external RTC should be used for reliable time keeping. See PCB shields logRTC and log<sup>2</sup>.
 
 <p align="center">
-  <img src="images/DSC02819-crop-nasic.JPG" width="500" />
+  <img src="images/log_materials.JPG" width="400" />
 </p>
 
 ## Assembly
@@ -17,11 +17,9 @@ The XIAO log is composed of a microcontroller board, a battery and the temperatu
 Instead of soldering the battery directly onto the chip, a connector is fixed to facilitate removal and power OFF. The sensor uses I2C protocol which can be configured on pins D4 (SDA) and D5 (SCL). By connecting the VCC power supply for the sensor on a GPIO, such as D10, it can be powered only when needed and therefore reduce Xiao log's power consumption during his deep sleep period.
 
 <p align="center">
-  <img src="images/DSC02847.JPG" width="500" />
-</p>
-
-<p align="center">
-  <img src="images/DSC02851.JPG" width="500" />
+  <img src="images/log_wires.JPG" height="250" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/log_assembly.JPG" height="200" />
 </p>
 
 ## Code
@@ -80,11 +78,8 @@ Currently, the only way to connect the ESP32C3 board while in deep sleep for ret
 The current consumption during the measurements and logging is about 20mA and takes around 2 seconds. In deep sleep, XIAO log draws 42uA from his battery which is *nice* considering the RTC time is still running. So, with the 500mAh battery from this setup, XIAO log can theoretically run for 29 days with a 60 seconds logging cycle. The graph below shows his actual run with temperature, humidity and battery voltage measurement and file write every minute. After 35 days, the battery voltage dropped below 3.3V and the microcontroller stopped functioning which means the calculations above are reliable. With a log cycle of 10 minutes or 1 hour, XIAO log could therefore operate for 241 days or 392 days, respectively. 
 
 <p align="center">
-  <img src="images/graph_vbat-log1min-35d.png" width="750" />
-</p>
-
-<p align="center">
-  <img src="images/graph_temphum-log1min-35d.png" width="750" />
+  <img src="images/log_vbat-log1min-35d.png" width="750" />
+  <img src="images/log_temphum-log1min-35d.png" width="750" />
 </p>
 It should also be noted that during this run, XIAO log didn't skip or mess up a single one of the total 49342 measurements and file logs. Good job XIAO log !
 
@@ -93,9 +88,9 @@ It should also be noted that during this run, XIAO log didn't skip or mess up a 
 Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 with this weird shaped PCB. Here the PCF8563 RTC chip is powered continuously through the 3V3. The battery voltage divider is enabled through D10 and the halved voltage can be read on A3. Footprints and silkscreen are specifically designed to help for manual soldering.
 
 <p align="center">
-  <img src="images/front-assembled.png" width="200" />
+  <img src="images/logRTC_front-mounted.png" width="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/back.png" width="200" />
+  <img src="images/logRTC_back.png" width="200" />
 </p>
 
 ## Assembly
@@ -103,9 +98,9 @@ Adding accurate time keeping and a battery voltage reading to the XIAO ESP32C3 w
 After mounting the SMD components, the module is intended to be soldered directly onto the XIAO board (screw heat dissipation), connecting the BAT+ pins together while leaving space for a connector or wires. 
 
 <p align="center">
-  <img src="images/XIAOlogRTC.png" height="250" />
+  <img src="images/logRTC_wires.png" height="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/XIAOlogRTC-box.png" height="200" />
+  <img src="images/logRTC_assembly.png" height="200" />
 </p>
 
 ## Code
@@ -121,24 +116,24 @@ Use the *test* variable to avoid the logger going to deep sleep and loosing conn
 Seeking compactness and all-in-one-ness, a logger hat was designed for the XIAO ESP32C3. Both V1 and V2 include the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock. The RTC is powered by the 3V3 and the two sensor chips are powered through pin D10. Communication is done through I2C pins D4 (SDA) and D5 (SCL). The second version also features a battery voltage divider that is enabled through D10 and the halved voltage can be read on pin A3. This circuitry requires wiring the battery power to the hat. The PCB and components costs for this module sum up to 9.81 RMB (1.37 USD).
 
 <p align="center">
-  <img src="images/v1_front.png" height="250" />
+  <img src="images/log^2_v1_front.png" height="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_front.png" height="250" />
+  <img src="images/log^2_v2_front.png" height="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_mounted.png" height="250" />
+  <img src="images/log^2_v2_mounted.png" height="250" />
 </p>
 
 ## Assembly
 SMD components are soldered on the shield first. V2 has adapted silkscreen and pads for easier manual soldering. The populated PCB is then soldered on the header pins of XIAO with an adequately-sized lithium battery sandwiched between the two boards. For V2, a wire must be added to get the battery voltage.
 
 <p align="center">
-  <img src="images/v1_assembled.png" height="200" />
+  <img src="images/log^2_v1_assembled.png" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v1_box.png" height="200" />
+  <img src="images/log^2_v1_box.png" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/v2_box.png" height="200" />
+  <img src="images/log^2_v2_box.png" height="200" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/box-bottom.png" height="200" />
+  <img src="images/log^2_box-bottom.png" height="200" />
 </p>
 
 An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD). 
