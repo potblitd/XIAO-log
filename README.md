@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/log^2_v1-assembled.png" height="200" />
+</p>
+
 # XIAO log
 
 The lack of a simple and cost-effective device to measure temperature and humidity autonomously in remote, outdoor locations is astonishing. Specifically in ecological studies, to collect data, researchers often use the [Ibutton](https://www.ibuttonlink.com/collections/thermochron) logger that was released some 20 years ago and comes at a starting price of 36.70 USD. Needless to say, with today’s rise of CMOS, SoC, IoT and B2C, it’s about time to give those poor government-funded researchers an alternative and open-source solution for a simple temperature and humidity logging device. It should be noted that this post does not describe a buyable product but rather an easy setup with minimal components and cost.
@@ -127,8 +131,6 @@ Seeking compactness and all-in-one-ness, a logger hat hat was designed for the X
 SMD components are soldered on the shield first. V2 has adapted silkscreen and pads for easier manual soldering. The populated PCB is then soldered on the header pins of XIAO with an adequately-sized lithium battery sandwiched between the two boards. For V2, a wire must be added to get the battery voltage.
 
 <p align="center">
-  <img src="images/log^2_v1-assembled.png" height="150" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/log^2_v1-box.png" height="150" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/log^2_v2-box.png" height="150" />
