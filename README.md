@@ -10,7 +10,7 @@ The lack of a simple and cost-effective device to measure temperature and humidi
 
 The XIAO log is composed of a microcontroller board, a battery and the temperature and humidity sensor probe. Although the [XIAO ESP32C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html) might seem a bit overkill for this application, it includes plenty of features that could be useful for future upgrades and variations. Also, its dirt [cheap](https://item.taobao.com/item.htm?spm=a230r.1.14.1.19487f1bpjLVY4&id=683550586572&ns=1&abbucket=17#detail) and trendy. For the sensor, a [waterproof probe](https://item.taobao.com/item.htm?spm=a230r.1.14.16.859f5271yamPh0&id=666936799925&ns=1&abbucket=17#detail) encasing the SHT40 chip (±0.2°C/±1.8%RH accuracy) should be suitable here. Lastly, the battery must be 3.7V lithium-ion to supply power and work with the dev board’s integrated battery charger. Its size can be chosen according to the housing dimensions. With [this waterproof box](https://detail.tmall.com/item.htm?abbucket=17&id=681093549681&ns=1&skuId=4882866353482&spm=a230r.1.14.16.6ee324ccSCpNRs), the total cost of XIAO log is about 71.76 RMB or 10.45 USD.
 
-<ins>Note</ins> : The XIAOs internal RTC is garbage. An external RTC should be used for reliable time keeping. See PCB shields [logRTC](#xiao-logrtc) and [log<sup>2</sup>](#log2).
+<ins>Note</ins> : The XIAOs internal RTC is garbage. An external RTC should be used for reliable time keeping. See PCB shields [logRTC](#xiao-logrtc), [log<sup>2</sup>](#log2) and [log<sup>2</sup>](#log3).
 
 <p align="center">
   <img src="images/log_materials.JPG" width="400" />
@@ -140,7 +140,7 @@ SMD components are soldered on the shield first. V2 has adapted silkscreen and p
 
 An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD).
 
-# [XIAO log<sup>3](log^3)
+# [XIAO log<sup>3](log^3)<span id="log3"></span>
 This is the latest version that was adapted for the Seeed Studio Co-Create program.
 
 
