@@ -3,6 +3,7 @@ log_period = 60*30
 test = True
 read_battery = True
 wifi_update = False
+write_log = True
 ssid = ''
 password = ''
 url = ''
@@ -90,7 +91,7 @@ if wifi_update:
     if connected:
         print("Connected to WiFi")
         readings = {'field1':temp, 'field2':humi, 'field3':lum}
-        if read_battery: readings.append('field4':vbat)
+        if read_battery: readings.append({'field4':vbat})
         try:
             request = urequests.post(url, json = readings, headers = {'Content-Type': 'application/json'})  
             request.close()
@@ -103,18 +104,19 @@ if wifi_update:
     sta_if.active(False)
     
 # VALUES LOG
-if not "log.csv" in os.listdir():
+if write_log:
+    if not "log.csv" in os.listdir():
+        with open("log.csv", "a") as log:
+            log.write("date,time,temp,hum,lum")
+            if read_battery: log.write(",vbat")
+            if wifi_update: log.write(",connected,uploaded")
+            log.write("\n")
+            
     with open("log.csv", "a") as log:
-        log.write("date,time,temp,hum,lum")
-        if read_battery: log.write(",vbat")
-        if wifi_update: log.write(",connected,uploaded")
+        log.write(rtc_date+","+rtc_time+","+str(temp)+","+str(humi)+","+str(lum))
+        if read_battery: log.write(","+str(vbat))
+        if wifi_update: log.write(","+str(connected)+","+str(uploaded))
         log.write("\n")
-        
-with open("log.csv", "a") as log:
-    log.write(rtc_date+","+rtc_time+","+str(temp)+","+str(humi)+","+str(lum))
-    if read_battery: log.write(","+str(vbat))
-    if wifi_update: log.write(","+str(connected)+","+str(uploaded))
-    log.write("\n")
     
 # DEEP SLEEP TIME
 if not test:
