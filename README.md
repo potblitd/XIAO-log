@@ -111,7 +111,7 @@ After mounting the SMD components, the module is intended to be soldered directl
 
 [set_rtc.py](code/set_rtc.py) sets the time on PCF8563 form the local time on the PC.
 
-The [logmain.py](code/logmain.py) code can be used for all variations in this repo. The *read_battery* parameter is used to enable battery voltage reading through D10 and A3. I2C comunication is initialized and, according to the adresses on the bus, values from the real-time clock (PCF8563), temperature & humidty sensor (SHT40) and ambient light sensor (BH1750) are retrieved. This data is then written into a file and send over WiFi to a cloud if *wifi_update* is enabled and its corresponding parameters are set up. Finally, the time until the next measurement is calculated based on the *log_period* time and deep sleep is activated.
+The [xiaohat.py](code/xiaohat.py) code can be used for all variations in this repo. The *read_battery* parameter is used to enable battery voltage reading through D10 and A3. I2C comunication is initialized and, according to the adresses on the bus, values from the real-time clock (PCF8563), temperature & humidty sensor (SHT40) and ambient light sensor (BH1750) are retrieved. This data is then written into a file and send over WiFi to a cloud if *wifi_update* is enabled and its corresponding parameters are set up. Finally, the time until the next measurement is calculated based on the *log_period* time and deep sleep is activated.
 
 Use the *test* variable to avoid the logger going to deep sleep and loosing connection when testing the code. Also, to access files when plugging the USB-C cable to a PC, resetting the board gives the user 10 seconds to connect to an IDE.
 
