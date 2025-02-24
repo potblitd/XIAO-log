@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/log^2_v1-assembled.png" height="200" />
+  <img src="images/log%5E2_v1-assembled.png" height="200" />
 </p>
 
 # XIAO log
@@ -122,22 +122,22 @@ This design has 3 revisions. The latest one (V3) was adapted for the Seeed Studi
 Seeking compactness and all-in-one-ness, a logger hat hat was designed for the XIAO board. The design includes the previously used SHT40 temperature sensor, the popular BH1750 ambient light sensor and the PCF8563 RTC chip to correct the godawful internal clock. The RTC is powered by the 3V3 and the two sensor chips are powered through pin D10. Communication is done through I2C pins D4 (SDA) and D5 (SCL). V2 and V3 also features a battery voltage divider that is enabled through D10 and the halved voltage can be read on pin A3. This circuitry requires wiring the battery power to a through-hole pad on the hat. The PCB and components costs for this module sum up to 9.81 RMB (1.37 USD).
 
 <p align="center">
-  <img src="images/log^2_v1-front.png" height="250" />
+  <img src="images/log%5E2_v1-front.png" height="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/log^2_v2-front.png" height="250" />
+  <img src="images/log%5E2_v2-front.png" height="250" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/log^2_v2-mounted.png" height="250" />
+  <img src="images/log%5E2_v2-mounted.png" height="250" />
 </p>
 
 ## Assembly
 SMD components are soldered on the shield first. V2 and V3 has adapted silkscreen and pads for easier manual soldering. The populated PCB is then soldered on the header pins of XIAO with an adequately-sized lithium battery sandwiched between the two boards. For V2 and V3, a wire must be added to get the battery voltage.
 
 <p align="center">
-  <img src="images/log^2_v1-box.png" height="150" />
+  <img src="images/log%5E2_v1-box.png" height="150" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/log^2_v2-box.png" height="150" />
+  <img src="images/log%5E2_v2-box.png" height="150" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/log^2_box-bottom.png" height="150" />
+  <img src="images/log%5E2_box-bottom.png" height="150" />
 </p>
 
 An acrylic cuboid was designed to tightly encase the entire system with holes for the USB-C connector, the U.FL antenna connector and access to the reset button. The complete assembly measures just 23.3 mm x 20 mm x 16.2 mm (without antenna) and the total cost is 46.65 RMB (6.52 USD).
