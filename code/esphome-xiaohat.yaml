@@ -1,0 +1,70 @@
+esphome:
+  name: xiao-log
+  friendly_name: XIAO-LOG
+  on_boot:
+    then:
+      - output.turn_on: switch_sensors
+      - delay: 1s
+     
+
+
+esp32:
+  board: seeed_xiao_esp32c3
+  variant: esp32c3
+  framework:
+    type: arduino
+    platform_version: 5.4.0
+
+
+# Enable logging
+logger:
+
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "your_api_key"
+
+
+ota:
+  - platform: esphome
+    password: "your_ota_key"
+
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Xiao-Log Fallback Hotspot"
+    password: "your_ap_key"
+
+
+captive_portal:
+
+
+output:
+- platform: gpio
+  pin: GPIO10
+  id: switch_sensors
+
+
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+  id: bus_a
+
+
+sensor:
+  - platform: bh1750
+    name: "Illuminance"
+    update_interval: 10s
+  - platform: sht4x
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Relative Humidity"
+    update_interval: 10s
