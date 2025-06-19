@@ -35,10 +35,15 @@ The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it 
 
 ## Programming
 
-The easiest way to get micropython on the ESP32C3 chip is to download the firmware [here](https://micropython.org/download/), enter bootloader mode by holding the BOOT button down while pressing the RESET button, and then flash the chip with the bin file using [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/) through the command prompt at the right COM port. With the [Thonny IDE](https://thonny.org/), the onboard files can easily be managed, and codes can be run directly without uploading them. This [basic code](code/xiaohat.py) implements all the features of the module.
+### Python
+The easiest way to get micropython on the ESP32C3 chip is to download the firmware [here](https://micropython.org/download/), enter bootloader mode by holding the BOOT button down while pressing the RESET button, and then flash the chip with the bin file using [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/) through the command prompt at the right COM port. With the [Thonny IDE](https://thonny.org/), the onboard files can easily be managed, and codes can be run directly without uploading them. 
+
+This [basic code](code/xiaohat.py) implements all the features of the module.
 
 Currently, the only way to connect the ESP32C3 board while in deep sleep for retrieving the log file, is to physically reset the board and click the restart backend button within the 10 seconds delay before the code continues and arrives back to deep sleep again. 
 
+### Home Assistant 
+The XIAO log devie can also be integrated into into Home Assistant thourgh ESPHome with this [example](code/esphome-xiaohat.yaml) code. 
 
 
 
