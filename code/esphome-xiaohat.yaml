@@ -44,6 +44,9 @@ wifi:
 
 captive_portal:
 
+#deep_sleep:
+#  run_duration: 10s
+#  sleep_duration: 10min
 
 output:
 - platform: gpio
