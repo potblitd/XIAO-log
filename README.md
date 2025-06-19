@@ -3,28 +3,46 @@
 </p>
 
 # XIAO log
+The XIAO-LOG is a ‘hardware attached on top’ module for the XIAO Series microcontroller boards, providing temperature, humidity and ambient light measurements. The SHT40 and BH1750 sensors communicate through I2C, making it easy to program and get started. Their power supply is enabled by GPIO pin D10 to allow no-power sleep mode. Additionally, the onboard PCF8563 real-time clock can be used to keep precise timing and send a timed interrupt to the microcontroller. A voltage divider connected between the battery and the ADC output makes battery voltage monitoring possible. With its thumb-sized footprint and castellated header pins, this logger module perfectly fits on most of the XIAO boards and can accommodate more expansion boards. The module is a co-create collaboration with Seeed Studio and can be pruchased [here](https://www.seeedstudio.com/XIAO-LOG-p-6341.html).
 
-The lack of a simple and cost-effective device to measure temperature and humidity autonomously in remote, outdoor locations is astonishing. Specifically in ecological studies, to collect data, researchers often use the [Ibutton](https://www.ibuttonlink.com/collections/thermochron) logger that was released some 20 years ago and comes at a starting price of 36.70 USD. Needless to say, with today’s rise of CMOS, SoC, IoT and B2C, it’s about time to give those poor government-funded researchers an alternative and open-source solution for a simple temperature and humidity logging device. It should be noted that this post does not describe a buyable product but rather an easy setup with minimal components and cost.
+## Description
 
-## Materials
+The XIAO-LOG is a tiny environmental sensors module, specifically tailored for the XIAO microcontroller boards. It comprises two sensors : the SHT40 and the BH1750, measuring temperature, humidity, and ambient light. The chips use I2C communication on pin D4 and D5 to receive commands and send data to the XIAO microcontroller. On the same bus is also the PCF8563 real-time clock that provides precise timing and a programmable interrupt to wake up the XIAO board on pin D0 from deep sleep at exactly the right time. With these commonly used chips, the dev board can easily be programmed with existing libraries, both in micropython or on the arduino platform. 
 
-The XIAO log is composed of a microcontroller board, a battery and the temperature and humidity sensor probe. Although the [XIAO ESP32C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html) might seem a bit overkill for this application, it includes plenty of features that could be useful for future upgrades and variations. Also, its dirt [cheap](https://item.taobao.com/item.htm?spm=a230r.1.14.1.19487f1bpjLVY4&id=683550586572&ns=1&abbucket=17#detail) and trendy. For the sensor, a [waterproof probe](https://item.taobao.com/item.htm?spm=a230r.1.14.16.859f5271yamPh0&id=666936799925&ns=1&abbucket=17#detail) encasing the SHT40 chip (±0.2°C/±1.8%RH accuracy) should be suitable here. Lastly, the battery must be 3.7V lithium-ion to supply power and work with the dev board’s integrated battery charger. Its size can be chosen according to the housing dimensions. With [this waterproof box](https://detail.tmall.com/item.htm?abbucket=17&id=681093549681&ns=1&skuId=4882866353482&spm=a230r.1.14.16.6ee324ccSCpNRs), the total cost of XIAO log is about 71.76 RMB or 10.45 USD.
+For wireless battery-powered loggers, the resistor divider connecting the battery with ADC pin A3, is notably useful to monitor and keep track of the battery voltage level. To achieve the lowest power consumption, the sensors and the divider are powered through GPIO pin D10 while the always-on RTC chip only consumes about 250nA.
 
-<ins>Note</ins> : The XIAOs internal RTC is garbage. An external RTC should be used for reliable time keeping. See PCB shields [logRTC](#xiao-logrtc) or [log<sup>2</sup>](#log2).
+The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it suitable for a sandwich configuration with the lithium-ion battery in between the two boards or for just stacking them. The castellated ‘post stamp’ headers on the board are friendly for breadboard setups and more HAT expansion layers.
 
 <p align="center">
   <img src="images/log_materials.JPG" width="400" />
 </p>
 
-## Assembly
+## Specifications
 
-Instead of soldering the battery directly onto the chip, a connector is fixed to facilitate removal and power OFF. The sensor uses I2C protocol which can be configured on pins D4 (SDA) and D5 (SCL). By connecting the VCC power supply for the sensor on a GPIO, such as D10, it can be powered only when needed and therefore reduce Xiao log's power consumption during his deep sleep period.
+| Item | Details |
+| --- | --- |
+| Size | 21mm x 17.75mm |
+| Operating Temperature | -40°C to 85°C |
+| Power Supply range | 2.4V ~ 3.6V |
+| Current consumption | ~ 500uA |
+| Idle current consumption | ~ 0.25uA |
+| Communication Interface | I2C (D4/SDA and D5/SCL), ADC (D3/D3) |
+| PCF8563 read time | TBA |
+| SHT40 read time | ~ 2ms |
+| BH1750 read time| ~ 120ms |
+| Compatibility (all features) | XIAO ESP32C3, ESP32C3 Sense, NRF54820, NRF54820 Sense |
+| Compatibility (no battery monitoring) | XIAO SAMD21, RP2040, ESP32C6 | 
+
+
+ | Show file differences that haven't been staged |
 
 <p align="center">
   <img src="images/log_wires.JPG" height="150" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/log_assembly.JPG" height="150" />
 </p>
+
+## Pinout Connections
 
 ## Programming
 
