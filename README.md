@@ -30,11 +30,9 @@ The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it 
 | PCF8563 read time | TBA |
 | SHT40 read time | ~ 2ms |
 | BH1750 read time| ~ 120ms |
-| Compatibility (all features) | XIAO ESP32C3, ESP32C3 Sense, NRF54820, NRF54820 Sense |
-| Compatibility (no battery monitoring) | XIAO SAMD21, RP2040, ESP32C6 | 
+| Compatibility (all features) | XIAO ESP32C3, NRF54820, RP2350, MG24, ESP32C6 |
+| Compatibility (no battery monitoring) | XIAO SAMD21, RP2040 | 
 
-
- | Show file differences that haven't been staged |
 
 <p align="center">
   <img src="images/log_wires.JPG" height="150" />
@@ -46,52 +44,7 @@ The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it 
 
 ## Programming
 
-The easiest way to get micropython on the ESP32C3 chip is to download the firmware [here](https://micropython.org/download/esp32c3-usb/), enter bootloader mode by holding the BOOT button down while pressing the RESET button, and then flash the chip with the bin file using [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/) through the command prompt at the right COM port. With the [Thonny IDE](https://thonny.org/), the onboard files can easily be managed, and codes can be run directly without uploading them. The example code below is simple : it gets the RTC time, reads temperature and humidity from the sensor, writes all these values in a file and then calculates the time until the next measurement based on the logging period before going into deep sleep.
-
-```ruby
-# PARAMETERS
-log_period = 60
- 
-# LIBRAIRIES
-import os, time, machine
-
-# DELAY ON RESET FOR IDE CONNECTION
-if machine.reset_cause() == 1: time.sleep_ms(10000)
- 
-# DATE & TIME
-now = time.localtime()
-now_date = "-".join(map(str, now[0:3]))
-now_time = ":".join(map(str, now[3:6]))
-print("Date and time:", now_date, now_time)
-
-# I2C INIT
-i2c = machine.SoftI2C(sda=machine.Pin(6),scl=machine.Pin(7))
-
-# TEMPERATURE & HUMIDITY
-machine.Pin(10, machine.Pin.OUT).on()
-time.sleep_ms(1)
-i2c.writeto(0x44, bytes([0XFD]))
-time.sleep_ms(10)
-buf = i2c.readfrom(0x44, 6)
-machine.Pin(10, machine.Pin.OUT).off()
-temp = -45 + 175 * (buf[0]*256 + buf[1]) / 65535
-humi = -6 + 125 * (buf[3]*256 + buf[4]) / 65535
-print("Temperature: %0.2f C" % temp)
-print("Humidity: %0.2f %%" % humi)
- 
-# VALUES LOG
-if not "log.csv" in os.listdir():
-    with open("log.csv", "a") as log:
-        log.write("date,time,temp,hum\n")
-with open("log.csv", "a") as log:
-    log.write(now_date+","+now_time+","+str(temp)+","+str(humi)+"\n")
- 
-# DEEP SLEEP TIME
-sleep_time = log_period - ((now[4]*60 + now[5]) % log_period)
-print("Going to sleep for %0.2f minutes" % (sleep_time/60))
-machine.deepsleep(sleep_time*1000)
-# end
-```
+The easiest way to get micropython on the ESP32C3 chip is to download the firmware [here](https://micropython.org/download/), enter bootloader mode by holding the BOOT button down while pressing the RESET button, and then flash the chip with the bin file using [esptool](https://docs.espressif.com/projects/esptool/en/latest/esp32/) through the command prompt at the right COM port. With the [Thonny IDE](https://thonny.org/), the onboard files can easily be managed, and codes can be run directly without uploading them. This [basic code](code/xiaohat.py) implements all the features of the module.
 
 Currently, the only way to connect the ESP32C3 board while in deep sleep for retrieving the log file, is to physically reset the board and click the restart backend button within the 10 seconds delay before the code continues and arrives back to deep sleep again. 
 
