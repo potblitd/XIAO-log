@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="images/log^2_v1-assembled.png" height="200" />
+  <img src="images/xiao-log-45.png" height="200" />
+  <img src="images/xiao-log-assembly.png" height="200" />
 </p>
 
 # XIAO log
