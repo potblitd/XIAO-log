@@ -10,8 +10,9 @@
 #include <BH1750.h>
 
 // zigbee configs from https://docs.espressif.com/projects/arduino-esp32/en/latest/libraries.html#zigbee-apis
-#define ZIGBEE_ILLUMINANCE_SENSOR_ENDPOINT 11
+// #define ZIGBEE_ILLUMINANCE_SENSOR_ENDPOINT 11
 #define TEMP_SENSOR_ENDPOINT_NUMBER 10
+#define ANALOG_DEVICE_ENDPOINT_NUMBER 1
 
 #define uS_TO_S_FACTOR 1000000ULL /* Conversion factor for micro seconds to seconds */
 #define TIME_TO_SLEEP 300        /* Sleep for 5 minutes */
@@ -23,7 +24,8 @@ bool resend = false;
 
 
 ZigbeeTempSensor zbTempSensor = ZigbeeTempSensor(TEMP_SENSOR_ENDPOINT_NUMBER);
-ZigbeeIlluminanceSensor zbIlluminanceSensor = ZigbeeIlluminanceSensor(ZIGBEE_ILLUMINANCE_SENSOR_ENDPOINT);
+// ZigbeeIlluminanceSensor zbIlluminanceSensor = ZigbeeIlluminanceSensor(ZIGBEE_ILLUMINANCE_SENSOR_ENDPOINT);
+ZigbeeAnalog zbAnalogLux = ZigbeeAnalog(ANALOG_DEVICE_ENDPOINT_NUMBER);
 
 // define pin connections with XIAO board
 uint8_t led = LED_BUILTIN;
@@ -127,7 +129,7 @@ void setup() {
   bh1750.begin();
 
   // Get luminosity from bh1750 sensor
-  float lux = bh1750.readLightLevel();
+  uint16_t lux = bh1750.readLightLevel();
   // print results
   Serial.print("Light: ");
   Serial.print(lux);
@@ -164,8 +166,14 @@ void setup() {
   zbTempSensor.setTolerance(1);
   zbTempSensor.addHumiditySensor(0, 100, 1);
   //set luxsensor zigbee settings
-  zbIlluminanceSensor.setMinMaxValue(0, 50000);
-  zbIlluminanceSensor.setTolerance(1);
+  //set luxsensor zigbee settings
+  // Set up analog input
+  zbAnalogLux.addAnalogInput();
+  zbAnalogLux.setAnalogInputApplication(ESP_ZB_ZCL_AI_COUNT_UNITLESS_OTHER);
+  zbAnalogLux.setAnalogInputDescription("Illuminance");
+  zbAnalogLux.setAnalogInputResolution(1);
+  // zbIlluminanceSensor.setMinMaxValue(0, 50000);
+  // zbIlluminanceSensor.setTolerance(1);
 
 #if USE_GLOBAL_ON_RESPONSE_CALLBACK
   // Global callback for all endpoints with more params to determine the endpoint and cluster in the callback function.
@@ -179,7 +187,8 @@ void setup() {
   //zbTempSensor.onLightChange(setLED);
   //Add endpoint to Zigbee Core
   Zigbee.addEndpoint(&zbTempSensor);
-  Zigbee.addEndpoint(&zbIlluminanceSensor);
+  // Zigbee.addEndpoint(&zbIlluminanceSensor);
+  Zigbee.addEndpoint(&zbAnalogLux);
   // Create a default Zigbee configuration for End Device
   esp_zb_cfg_t zigbeeConfig = ZIGBEE_DEFAULT_ED_CONFIG();
   zigbeeConfig.nwk_cfg.zed_cfg.keep_alive = 10000;
@@ -211,11 +220,14 @@ void setup() {
   zbTempSensor.setHumidity(humi);
   //zbTempSensor.setBatteryPercentage(Vbatp);
   //zbTempSensor.setBatteryVoltage(Vbatf*10);
-  zbIlluminanceSensor.setIlluminance(lux);
+  // zbIlluminanceSensor.setIlluminance(lux);
+  zbAnalogLux.setAnalogInput(lux);
   // Report values
   zbTempSensor.report();
+  delay(100);
   //zbTempSensor.reportBatteryPercentage();
-  zbIlluminanceSensor.report();
+  // zbIlluminanceSensor.report();
+  zbAnalogLux.reportAnalogInput();
   
   unsigned long startTime = millis();
   const unsigned long timeout = REPORT_TIMEOUT;
@@ -230,19 +242,19 @@ void setup() {
       resend = false;
       dataToSend = 2;
       zbTempSensor.report();  // report again
+      zbAnalogLux.reportAnalogInput();
     }
     if (millis() - startTime >= timeout) {
       Serial.println("\nReport timeout! Report Again");
       dataToSend = 2;
       zbTempSensor.report();  // report again
+      zbAnalogLux.reportAnalogInput();
       startTime = millis();
       tries++;
     }
     Serial.printf(".");
     delay(100);  // 50ms delay to avoid busy-waiting
   }
-
-
 
   // Put device to deep sleep
   Serial.printf("Going to sleep for %d seconds\r\n", TIME_TO_SLEEP);
