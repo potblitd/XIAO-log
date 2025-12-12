@@ -4,7 +4,7 @@
   <img src="images/xiao-log-assembly.png" height="300" />
 </p>
 
-_Arduino Zigbee Code_  [here](https://github.com/potblitd/XIAO-log/blob/main/zigbee/z-xiaohat.ino)
+An example _Arduino Zigbee_ code for the XIAO-log combined with a XIAO ESP32C6 micrcontroller can now be found [here](https://github.com/potblitd/XIAO-log/blob/main/zigbee/z-xiaohat.ino)
 
 # XIAO log
 The XIAO-LOG is a ‘hardware attached on top’ module for the XIAO Series microcontroller boards, providing temperature, humidity and ambient light measurements. The SHT40 and BH1750 sensors communicate through I2C, making it easy to program and get started. Their power supply is enabled by GPIO pin D10 to allow no-power sleep mode. Additionally, the onboard PCF8563 real-time clock can be used to keep precise timing and send a timed interrupt to the microcontroller. A voltage divider connected between the battery and the ADC output makes battery voltage monitoring possible. With its thumb-sized footprint and castellated header pins, this logger module perfectly fits on most of the XIAO boards and can accommodate more expansion boards. The module is a co-create collaboration with Seeed Studio and can be pruchased [here](https://www.seeedstudio.com/XIAO-LOG-p-6341.html).
