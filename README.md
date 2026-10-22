@@ -11,7 +11,7 @@ The XIAO-LOG is a ‘hardware attached on top’ module for the XIAO Series micr
 
 The XIAO-LOG is a tiny environmental sensors module, specifically tailored for the XIAO microcontroller boards. It comprises two sensors : the SHT40 and the BH1750, measuring temperature, humidity, and ambient light. The chips use I2C communication on pin D4 and D5 to receive commands and send data to the XIAO microcontroller. On the same bus is also the PCF8563 real-time clock that provides precise timing and a programmable interrupt to wake up the XIAO board on pin D0 from deep sleep at exactly the right time. With these commonly used chips, the dev board can easily be programmed with existing libraries, both in micropython or on the arduino platform. 
 
-For wireless battery-powered loggers, the resistor divider connecting the battery with ADC pin A3, is notably useful to monitor and keep track of the battery voltage level. To achieve the lowest power consumption, the sensors and the divider are powered through GPIO pin D10 while the always-on RTC chip only consumes about 250nA.
+For wireless battery-powered loggers, the resistor divider connecting the battery with ADC pin A1, is notably useful to monitor and keep track of the battery voltage level. To achieve the lowest power consumption, the sensors and the divider are powered through GPIO pin D10 while the always-on RTC chip only consumes about 250nA.
 
 The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it suitable for a sandwich configuration with the lithium-ion battery in between the two boards or for just stacking them. The castellated ‘post stamp’ headers on the board are friendly for breadboard setups and more HAT expansion layers.
 
@@ -24,7 +24,7 @@ The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it 
 | Power Supply range | 2.4V ~ 3.6V |
 | Current consumption | ~ 500uA |
 | Idle current consumption | ~ 0.25uA |
-| Communication Interface | I2C (D4/SDA and D5/SCL), ADC (D3/D3) |
+| Communication Interface | I2C (D4/SDA and D5/SCL), ADC (D1/A1) |
 | PCF8563 read time | TBA |
 | SHT40 read time | ~ 2ms |
 | BH1750 read time| ~ 120ms |

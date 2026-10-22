@@ -20,7 +20,11 @@ machine.Pin(10, machine.Pin.OUT).on()
 
 # BATTERY VOLTAGE
 if read_battery:
-    adc = machine.ADC(machine.Pin(5), atten = machine.ADC.ATTN_11DB)
+    # V2: D3/A3 -> GPIO5 on XIAO ESP32C3
+    # adc = machine.ADC(machine.Pin(5), atten = machine.ADC.ATTN_11DB)
+
+    # V3: D1/A1 -> GPIO3 on XIAO ESP32C3
+    adc = machine.ADC(machine.Pin(3), atten = machine.ADC.ATTN_11DB)
     time.sleep_ms(100)
     vbat = round(adc.read_uv()/1000/1000*2, 3)
     if test : print("Battery voltage: %0.3f V" % vbat)
