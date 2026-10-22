@@ -28,8 +28,8 @@ The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it 
 | PCF8563 read time | TBA |
 | SHT40 read time | ~ 2ms |
 | BH1750 read time| ~ 120ms |
-| Compatibility (all features) | XIAO ESP32C3, NRF54820, RP2350, MG24, ESP32C6 |
-| Compatibility (no battery monitoring) | XIAO SAMD21, RP2040 | 
+| Compatibility (all features) | XIAO - ESP32C3, ESP32C6, ESP32S3, nRF54820, RP2350, Ra4M1, MG24 |
+| Compatibility (no battery monitoring) | XIAO - SAMD21, RP2040 | 
 
 ## Pinout Connections
 
