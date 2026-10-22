@@ -1,6 +1,6 @@
 <p align="center">
   <img src="images/xiao-log-45.png" height="300" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="images/xiao-log-sandwich.png" height="200" />
 </p>
 
