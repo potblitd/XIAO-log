@@ -45,5 +45,7 @@ Currently, the only way to connect the ESP32C3 board while in deep sleep for ret
 ### Home Assistant 
 The XIAO log devie can also be integrated into into Home Assistant thourgh ESPHome with this [example](code/esphome-xiaohat.yaml) code. 
 
+### Zigbee
+The [Arduino code](zigbee/Arduino/z-xiaohat.ino) to add Zigbee functionality is currently running fine on an ESP32C6 but remains experimental since these libraries are fairly new and still evolving.
 
 
