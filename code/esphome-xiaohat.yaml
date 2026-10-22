@@ -1,3 +1,4 @@
+# This is a basic example for the ESP32C3. Here, the temperature, humioditry and luminosity are measured every 10 seconds and updated to home assistant over WiFi.
 esphome:
   name: xiao-log
   friendly_name: XIAO-LOG
@@ -6,8 +7,6 @@ esphome:
       - output.turn_on: switch_sensors
       - delay: 1s
      
-
-
 esp32:
   board: seeed_xiao_esp32c3
   variant: esp32c3

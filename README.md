@@ -1,17 +1,17 @@
 <p align="center">
   <img src="images/xiao-log-45.png" height="300" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/xiao-log-assembly.png" height="300" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/xiao-log-sandwich.png" height="200" />
 </p>
 
 # XIAO log
-The XIAO-LOG is a ‘hardware attached on top’ module for the XIAO Series microcontroller boards, providing temperature, humidity and ambient light measurements. The SHT40 and BH1750 sensors communicate through I2C, making it easy to program and get started. Their power supply is enabled by GPIO pin D10 to allow no-power sleep mode. Additionally, the onboard PCF8563 real-time clock can be used to keep precise timing and send a timed interrupt to the microcontroller. A voltage divider connected between the battery and the ADC output makes battery voltage monitoring possible. With its thumb-sized footprint and castellated header pins, this logger module perfectly fits on most of the XIAO boards and can accommodate more expansion boards. The module is a co-create collaboration with Seeed Studio and can be pruchased [here](https://www.seeedstudio.com/XIAO-LOG-p-6341.html).
+The XIAO-LOG is a ‘hardware attached on top’ module for the XIAO Series microcontroller boards, providing temperature, humidity and ambient light measurements. The SHT40 and BH1750 sensors communicate through I2C, making it easy to program and get started. Their power supply is enabled by GPIO pin D10 to allow no-power sleep mode. Additionally, the onboard PCF8563 real-time clock can be used to keep precise timing and send a timed interrupt to the microcontroller. A voltage divider connected between the battery and the ADC makes battery voltage monitoring possible. With its thumb-sized footprint and castellated header pins, this logger module perfectly fits on most of the XIAO boards and can accommodate more expansion boards. The module is a co-create collaboration with Seeed Studio and can be pruchased [here](https://www.seeedstudio.com/XIAO-LOG-p-6341.html).
 
 ## Description
 
 The XIAO-LOG is a tiny environmental sensors module, specifically tailored for the XIAO microcontroller boards. It comprises two sensors : the SHT40 and the BH1750, measuring temperature, humidity, and ambient light. The chips use I2C communication on pin D4 and D5 to receive commands and send data to the XIAO microcontroller. On the same bus is also the PCF8563 real-time clock that provides precise timing and a programmable interrupt to wake up the XIAO board on pin D0 from deep sleep at exactly the right time. With these commonly used chips, the dev board can easily be programmed with existing libraries, both in micropython or on the arduino platform. 
 
-For wireless battery-powered loggers, the resistor divider connecting the battery with ADC pin A1, is notably useful to monitor and keep track of the battery voltage level. To achieve the lowest power consumption, the sensors and the divider are powered through GPIO pin D10 while the always-on RTC chip only consumes about 250nA.
+For wireless battery-powered loggers, the resistor divider connecting the battery with ADC pin D1/A1, is notably useful to monitor and keep track of the battery voltage level. To achieve the lowest power consumption, the sensors and the divider are powered through GPIO pin D10 while the always-on RTC chip only consumes about 250nA.
 
 The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it suitable for a sandwich configuration with the lithium-ion battery in between the two boards or for just stacking them. The castellated ‘post stamp’ headers on the board are friendly for breadboard setups and more HAT expansion layers.
 
@@ -28,8 +28,8 @@ The dimensions of the XIAO-LOG board are the same as the XIAO boards, making it 
 | PCF8563 read time | TBA |
 | SHT40 read time | ~ 2ms |
 | BH1750 read time| ~ 120ms |
-| Compatibility (all features) | XIAO ESP32C3, NRF54820, RP2350, MG24, ESP32C6 |
-| Compatibility (no battery monitoring) | XIAO SAMD21, RP2040 | 
+| Compatibility (all features) | _XIAO_ - ESP32C3, ESP32C6, ESP32S3, nRF54820, RP2350, Ra4M1, MG24<br>_QT Py_ - ESP32C3, ESP32S2, ESP32S3, ESP32 Pico |
+| Compatibility (no battery monitoring) | _XIAO_ - SAMD21, RP2040<br>_QT Py_ - RP2040, SAMD21,  CH32V203, CH552 | 
 
 ## Pinout Connections
 
@@ -45,5 +45,7 @@ Currently, the only way to connect the ESP32C3 board while in deep sleep for ret
 ### Home Assistant 
 The XIAO log devie can also be integrated into into Home Assistant thourgh ESPHome with this [example](code/esphome-xiaohat.yaml) code. 
 
+### Zigbee
+The [Arduino code](zigbee/Arduino/z-xiaohat.ino) to add Zigbee functionality is currently running fine on an ESP32C6 but remains experimental since these libraries are fairly new and still evolving.
 
 
