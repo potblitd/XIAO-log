@@ -1,3 +1,7 @@
+// Set the following :
+// Partition Scheme -> Zigbee 4MB with spiffs
+// Zigbee Mode -> Zigbee ED (end device)
+
 #ifndef ZIGBEE_MODE_ED
 #error "Zigbee end device mode is not selected in Tools->Zigbee mode"
 #endif
