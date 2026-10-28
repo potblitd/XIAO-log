@@ -1,4 +1,4 @@
-# This is a basic example for the ESP32C3. Here, the temperature, humioditry and luminosity are measured every 10 seconds and updated to home assistant over WiFi.
+# This is a basic example for the ESP32C3. Here, the temperature, humioditry and luminosity are measured every 10 minutes and updated to home assistant over WiFi.
 esphome:
   name: xiao-log
   friendly_name: XIAO-LOG
